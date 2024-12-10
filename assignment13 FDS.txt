@@ -1,0 +1,161 @@
+Write program to implement a priority queue in C++ using an inorder list to store the items in the queue.
+ Create a class that includes the data items (which should be template) and the priority (which should be int).
+ The inorder list should contain these objects, with operator <= overloaded so that the items with highest priority 
+appear at the beginning of the list (which will make it relatively easy to retrieve the highest item.)
+
+
+#include <iostream>
+
+#include <string>
+
+#include <queue>
+
+ 
+
+using namespace std;
+
+ 
+
+// Create a Comparison Class for our
+
+// integer priority queue
+
+class CompareClass {
+
+    public:
+
+        bool operator () (int a, int b) {
+
+            if (a <= b)
+
+                return true;
+
+            return false;
+
+        }
+
+};
+
+ 
+
+void print_pqueue (priority_queue<int, vector<int>, CompareClass> pq) {
+
+    // Prints the Priority Queue
+
+    priority_queue<int, vector<int>, CompareClass> copy_q = pq;
+
+    cout << "Priority Queue : ";
+
+    while (!copy_q.empty()) {
+
+        cout << copy_q.top() << " ";
+
+        copy_q.pop();
+
+    }
+
+    cout << "\n";
+
+}
+
+ 
+
+int main() {
+
+    // Program demonstrating use of Priority Queue
+
+    // methods
+
+    
+
+    // Create an empty priority queue of integers
+
+    priority_queue<int, vector<int>, CompareClass> queue_int;
+
+ 
+
+    // Is the Queue empty now? Yes!
+
+    cout << "Is the Queue empty now? : " << (queue_int.empty() ? "Yes" : "No") << endl;
+
+ 
+
+    // Let's add some elements!
+
+    cout << "Enter number of elements to add...\n";
+
+    int number,ele;
+
+    cin >> number;
+
+    for(int i = 0; i < number; i++)
+
+    {
+
+        cout <<"\n Enter Element : ";
+
+        cin >> ele;
+
+        queue_int.push(ele);
+
+    }
+
+   
+
+ 
+
+    cout << "Number of elements : " << queue_int.size() << endl;
+
+    cout << "Top element : " << queue_int.top() << endl << endl;
+
+ 
+
+    print_pqueue(queue_int);
+
+ 
+
+    cout << "Popping element from the top...\n\n";
+
+    queue_int.pop();
+
+    print_pqueue(queue_int);
+
+    
+
+    return 0;
+
+}
+
+
+ 
+
+
+/**************************************OUTPUT****************************
+ Is the Queue empty now? : Yes                                                                                                          
+
+Enter number of elements to add...                                                                                                     
+
+3                                                                                                                                      
+
+                                                                                                                                 
+ Enter Element : 10                                                                                                                    
+
+                                                                                                                                    
+ Enter Element : 20                                                                                                                    
+
+                                                                                                                                       
+ Enter Element : 30                                                                                                                    
+
+Number of elements : 3                                                                                                                 
+
+Top element : 30                                                                                                                       
+
+                                                                                                                                       
+Priority Queue : 30 20 10                                                                                                              
+
+Popping element from the top...                                                                                                        
+
+                                                                                                            
+Priority Queue : 20 10   
+
+*/
