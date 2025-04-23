@@ -1,0 +1,152 @@
+                                      Assignment No. 3
+Aim:-A book consists of chapters, chapters consist of sections and sections consist of
+subsections. Construct a tree and print the nodes. Find the time and space requirements
+of your method.
+Code:
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+// Structure to represent a tree node
+struct Node {
+    string name;                // Name of the node (e.g., book, chapter, section, subsection)
+    vector<Node*> children;     // Child nodes
+
+    // Constructor to initialize the node
+    Node(string nodeName) : name(nodeName) {}
+};
+
+// Function to print the tree structure
+void printTree(Node* root, int level = 0) {
+    if (!root) return;
+
+    // Print the current node with indentation
+    for (int i = 0; i < level; i++) cout << "  ";
+    cout << root->name << endl;
+
+    // Recursively print child nodes
+    for (Node* child : root->children) {
+        printTree(child, level + 1);
+    }
+}
+
+// Function to delete the entire tree and free memory
+void deleteTree(Node* root) {
+    if (!root) return;
+
+    // Recursively delete child nodes
+    for (Node* child : root->children) {
+        deleteTree(child);
+    }
+
+    // Delete the current node
+    delete root;
+}
+
+// Function to count the total number of nodes in the tree
+int countNodes(Node* root) {
+    if (!root) return 0;
+
+    int count = 1; // Count the current node
+    for (Node* child : root->children) {
+        count += countNodes(child); // Add child nodes recursively
+    }
+    return count;
+}
+
+// Function to calculate the total space used by the tree
+int calculateSpace(Node* root) {
+    if (!root) return 0;
+
+    int space = sizeof(*root); // Space for the current node
+    for (Node* child : root->children) {
+        space += calculateSpace(child); // Add space for all child nodes
+    }
+    return space;
+}
+
+int main() {
+    // Input the book name
+    cout << "Enter the name of the book: ";
+    string bookName;
+    getline(cin, bookName);
+
+    // Create the root node for the book
+    Node* book = new Node("Book: " + bookName);
+
+    // Input the number of chapters
+    int numChapters;
+    cout << "Enter the number of chapters: ";
+    cin >> numChapters;
+
+    for (int i = 1; i <= numChapters; i++) {
+        // Input chapter name
+        cout << "Enter the name of Chapter " << i << ": ";
+        cin.ignore();
+        string chapterName;
+        getline(cin, chapterName);
+
+        // Create a chapter node
+        Node* chapter = new Node("Chapter: " + chapterName);
+        book->children.push_back(chapter);
+
+        // Input the number of sections in the chapter
+        int numSections;
+        cout << "Enter the number of sections in " << chapterName << ": ";
+        cin >> numSections;
+
+        for (int j = 1; j <= numSections; j++) {
+            // Input section name
+            cout << "Enter the name of Section " << j << ": ";
+            cin.ignore();
+            string sectionName;
+            getline(cin, sectionName);
+
+            // Create a section node
+            Node* section = new Node("Section: " + sectionName);
+            chapter->children.push_back(section);
+
+            // Input the number of subsections in the section
+            int numSubsections;
+            cout << "Enter the number of subsections in " << sectionName << ": ";
+            cin >> numSubsections;
+
+            for (int k = 1; k <= numSubsections; k++) {
+                // Input subsection name
+                cout << "Enter the name of Subsection " << k << ": ";
+                cin.ignore();
+                string subsectionName;
+                getline(cin, subsectionName);
+
+                 // Create a subsection node
+                Node* subsection = new Node("Subsection: " + subsectionName);
+                section->children.push_back(subsection);
+            }
+        }
+    }
+
+    // Print the hierarchical structure of the book
+    cout << "\nThe hierarchical structure of the book is:\n";
+    printTree(book);
+
+    // Count the total number of nodes
+    int totalNodes = countNodes(book);
+    cout << "\nTotal number of nodes in the tree: " << totalNodes << endl;
+
+    // Calculate and display the space requirements
+    int spaceRequired = calculateSpace(book);
+    cout << "\nTotal space required for the tree (in bytes): " << spaceRequired << endl;
+
+    // Time and space requirements
+    cout << "\nTime Complexity: O(n), where " << totalNodes << " is the total number of nodes." << endl;
+    cout << "Space Complexity: O(n), due to the memory used by nodes and the recursive stack during tree traversal. "<< endl;
+
+    // Delete the tree to free memory
+    deleteTree(book);
+    cout << "\nTree deleted successfully.\n";
+
+    return 0;
+}
+
+
