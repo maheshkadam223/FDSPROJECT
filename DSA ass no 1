@@ -152,3 +152,76 @@ def main():
 if __name__ == "__main__":
     main()
 
+OUTPUT :
+output :
+-------------------------------
+    Telephone Book Application
+-------------------------------
+	1. Insert Value
+	2. Display
+	3. Search
+	4. Exit
+-------------------------------
+Enter choice: 1
+
+Select collision resolution method:
+	1. Quadratic Probing
+	2. Double Hashing
+Enter choice: 1
+
+Enter number of records: 2
+Enter name: lajri
+Enter telephone number: 2233445566
+Enter name: mayuri
+Enter telephone number: 2227788998
+-------------------------------
+	1. Insert Value
+	2. Display
+	3. Search
+	4. Exit
+-------------------------------
+Enter choice: 2
+	1. Display Quadratic Probing Table
+	2. Display Double Hashing Table
+Enter choice: 2
+-------------------------------
+Index	Name	Telephone No.
+-------------------------------
+0	-	-
+1	-	-
+2	-	-
+3	-	-
+4	-	-
+5	-	-
+6	-	-
+7	-	-
+8	-	-
+9	-	-
+-------------------------------
+-------------------------------
+	1. Insert Value
+	2. Display
+	3. Search
+	4. Exit
+-------------------------------
+Enter choice: 3
+Enter name to search: lajri
+
+Found in Hashtable-1 (Quadratic Probing)!
+-------------------------------
+Index	Name	Telephone No.
+-------------------------------
+6	lajari	2233445566
+-------------------------------
+-------------------------------
+	1. Insert Value
+	2. Display
+	3. Search
+	4. Exit
+-------------------------------
+Enter choice: 4
+Exiting program...
+
+=== Code Execution Successful ===
+
+
