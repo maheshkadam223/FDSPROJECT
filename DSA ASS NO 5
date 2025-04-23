@@ -1,5 +1,5 @@
 
-Assignment No. 5
+                         Assignment No. 5
 Aim:-  Convert given binary tree into threaded binary tree. Analyze time and space complexity of the algorithm.
 
 SOURSE Code:
@@ -115,3 +115,10 @@ int main() {
 
     return 0;
 }
+
+Output:
+Inorder Traversal using Threaded Binary Tree: 3 5 7 10 15 20 25 
+Execution Time: 2 microseconds
+Total Nodes Created: 7
+Approximate Space Used: 224 bytes
+
