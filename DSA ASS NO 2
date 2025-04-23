@@ -1,6 +1,16 @@
                                               Assignment No.2
-AIM: A-4 To create ADT that implement the "set" concept. a. Add (new Element) -Place a value into the set , b. Remove (element) Remove the value c. Contains (element) Return true if element is in collection, d. Size () Return number of values in collection Iterator () Return an iterator used to loop over collection, e. Intersection of two sets , f. Union of two sets, g. Difference between two sets, h. Subset 
- Source code : 
+AIM: A-4 To create ADT that implement the "set" concept.
+a. Add (new Element) -Place a value into the set ,
+b. Remove (element) Remove the value 
+c. Contains (element) Return true if element is in collection, 
+d. Size () Return number of values in collection Iterator () Return an iterator used to loop over collection,
+e. Intersection of two sets ,
+f. Union of two sets,
+g. Difference between two sets, 
+h. Subset 
+
+
+Source code : 
 class Set:
     def __init__(self):
         self.elements = []
@@ -70,4 +80,34 @@ print("Union:", list(set1.union(set2).iterator()))
 print("Difference (Set 1 - Set 2):", list(set1.difference(set2).iterator()))
 
 print("Set 1 is a subset of Set 2:", set1.subset(set2))     
+
+
+output:  
+(base) sspm@sspm:~$ python dsa3.py
+Enter the number of elements for set 1: 5
+Enter elements for set 1: 
+2
+34
+23
+56
+2
+Enter the number of elements for set 2: 5
+Enter elements for set 2: 
+45
+23
+65
+56
+8
+Set 1: ['2', '34', '23', '56']
+Set 2: ['45', '23', '65', '56', '8']
+Intersection: ['23', '56']
+Union: ['2', '34', '23', '56', '45', '65', '8']
+Difference (Set 1 - Set 2): ['2', '34']
+Set 1 is a subset of Set 2: False
+
  
+
+  
+
+
+
