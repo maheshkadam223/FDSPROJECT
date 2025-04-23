@@ -7,38 +7,60 @@ c)Multiplication of two matrices
 d)Transpose of a matrices 
 
 Program:-
-import numpy
+class Matrix: 
+    def __init__(self, data): 
+        self.data = data 
+        self.rows = len(data) 
+        self.cols = len(data[0]) if self.rows > 0 else 0 
+ 
+    def add(self, other): 
+        if self.rows != other.rows or self.cols != other.cols: 
+            raise ValueError("Matrices must have the same dimensions for addition.") 
+        return Matrix([[self.data[i][j] + other.data[i][j] for j in range(self.cols)] for i in range(self.rows)]) 
+     
+    def subtract(self, other): 
+        if self.rows != other.rows or self.cols != other.cols: 
+            raise ValueError("Matrices must have the same dimensions for subtraction.") 
+        return Matrix([[self.data[i][j] - other.data[i][j] for j in range(self.cols)] for i in range(self.rows)]) 
+     
+    def multiply(self, other): 
+        if self.cols != other.rows: 
+            raise ValueError("Number of columns of the first matrix must be equal to the number of rows of the second.") 
+        result = [[0] * other.cols for _ in range(self.rows)] 
+        for i in range(self.rows): 
+            for j in range(other.cols): 
+                for k in range(self.cols): 
+                    result[i][j] += self.data[i][k] * other.data[k][j] 
+        return Matrix(result) 
+ 
+    def transpose(self): 
+        return Matrix([[self.data[j][i] for j in range(self.rows)] for i in range(self.cols)]) 
+ 
+    def __str__(self): 
+        return '\n'.join(['\t'.join(map(str, row)) for row in self.data]) 
+ 
+# Example usage: 
+if __name__ == "__main__": 
+    A = Matrix([[1, 2, 3], [4, 5, 6]]) 
+    B = Matrix([[7, 8, 9], [10, 11, 12]]) 
+ 
+    print("Matrix A:") 
+    print(A) 
+ 
+    print("\nMatrix B:") 
+    print(B) 
+ 
+    print("\nA + B:") 
+    print(A.add(B)) 
+ 
+    print("\nA - B:") 
+    print(A.subtract(B)) 
+ 
+    C = Matrix([[1, 2], [3, 4], [5, 6]]) 
+    print("\nA * C:") 
+    print(A.multiply(C)) 
+ 
+    print("\nTranspose of A:") 
+    print(A.transpose()) 
 
-# initializing matrices
-x = numpy.array([[1, 2], [4, 5]])
-y = numpy.array([[7, 8], [9, 10]])
-
-# using add() to add matrices
-print("The element wise addition of matrix is : ")
-print(numpy.add(x, y))
-# using subtract() to subtract matrices
-print("The element wise subtraction of matrix is : ")
-print(numpy.subtract(x, y))
-
-# using dot() to multiply matrices
-print ("The product of matrices is : ")
-print (numpy.dot(x,y))
-
-# using "T" to transpose the matrix
-print("The transpose of given matrix is : ")
-print(x.T)
-
-Output:-
-
-The element wise addition of matrix is : 
-[[ 8 10]
- [13 15]]
-The element wise subtraction of matrix is : 
-[[-6 -6]
- [-5 -5]]
-The product of matrices is : 
-[[25 28]
- [73 82]]
-The transpose of given matrix is : 
-[[1 4]
- [2 5]]
+ 
