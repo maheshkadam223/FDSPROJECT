@@ -1,5 +1,5 @@
-No. :- SE205.                           Batch :- B1
-                                     Assignment No.:- 6
+                
+                               Assignment No.:- 6
 Aim:- There are flight paths between cities. If there is a flight between city A and city B then
 there is an edge between the cities. The cost of the edge can be the time that flight take
 to reach city B from A, or the amount of fuel used for the journey. Represent this as a
@@ -91,5 +91,29 @@ cout<<endl;
 cout<<"BFS: "; bfs(u,n,cities);
 return 0;
 }
+Output:
+Enter no. of cities: 3
+Enter city #0 (Airport Code): bob
+Enter city #1 (Airport Code): dlr
+Enter city #2 (Airport Code): blr
+
+Your cities are: 
+city #0: bob
+city #1: dlr
+city #2: blr
+Enter distance between bob and dlr: 500
+Enter distance between bob and blr: 1000
+Enter distance between dlr and blr: 700
+
+	bob		dlr		blr	
+bob	0		500		1000	
+
+dlr	500		0		700	
+
+blr	1000		700		0	
+Enter Starting Vertex: 0
+DFS: bob dlr blr 
+BFS: bob dlr blr
+
 
 
