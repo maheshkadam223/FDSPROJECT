@@ -149,4 +149,44 @@ int main() {
     return 0;
 }
 
+Output:-
+Enter the name of the book: DSA
+Enter the number of chapters: 2
+Enter the name of Chapter 1: Hashing
+Enter the number of sections in hashing: 1
+Enter the name of Section 1: basic concepts
+Enter the number of subsections in basic concepts: 2
+Enter the name of Subsection 1: hash function
+Enter the name of Subsection 2: hash table
+Enter the name of Chapter 2: graphs
+Enter the number of sections in  graphs: 2
+Enter the name of Section 1: Basic concepts
+Enter the number of subsections in Basic concepts: 2
+Enter the name of Subsection 1: BFS
+Enter the name of Subsection 2: DFS
+Enter the name of Section 2: Traversal
+Enter the number of subsections in Traversal: 1
+Enter the name of Subsection 1: Graph traversing
+
+The hierarchical structure of the book is:
+Book: DSA
+  Chapter: Hashing
+    Section: basic concepts
+      Subsection: hash function
+      Subsection: hash table
+  Chapter: graphs
+    Section: Basic concepts
+      Subsection: BFS
+      Subsection: DFS
+    Section: Traversal
+      Subsection: Graph traversing
+
+Total number of nodes in the tree: 11
+
+Total space required for the tree (in bytes): 616
+
+Time Complexity: O(n), where 11 is the total number of nodes.
+Space Complexity: O(n), due to the memory used by nodes and the recursive stack during tree traversal. 
+
+Tree deleted successfully.
 
