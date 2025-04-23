@@ -1,0 +1,62 @@
+------------------------------------------------------------------------------------------------------------------------------------------                                  
+                                                              Assignment  No:10
+Aim: Read the marks obtained by students of
+second year in an online examination of
+particular subject. Find out maximum and
+minimum marks obtained in that subject. Use
+heap data structure. Analyze the algorithm.
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+int main() {
+    int n;
+    
+    // Input: Number of students
+    cout << "Enter the number of students: ";
+    cin >> n;
+    
+    if (n <= 0) {
+        cout << "Invalid number of students!" << endl;
+        return 1;
+    }
+    
+    vector<int> marks(n);
+    
+    // Input: Marks of students
+    cout << "Enter the marks of students: ";
+    for (int i = 0; i < n; i++) {
+        cin >> marks[i];
+    }
+    
+    // Using max heap to get the maximum marks
+    priority_queue<int> maxHeap;
+    // Using min heap to get the minimum marks
+    priority_queue<int, vector<int>, greater<int>> minHeap;
+    
+    // Insert elements into the heaps
+    for (int mark : marks) {
+        maxHeap.push(mark);
+        minHeap.push(mark);
+    }
+    
+    // Output: Maximum and Minimum marks
+    cout << "\nResults:\n";
+    cout << "Maximum marks obtained: " << maxHeap.top() << endl;
+    cout << "Minimum marks obtained: " << minHeap.top() << endl;
+    
+    return 0;
+}
+
+Output:
+Enter the number of students: 4
+Enter the marks of students: 76 89 96 90
+
+Results:
+Maximum marks obtained: 96
+Minimum marks obtained: 76
+
+
+=== Code Execution Successful ===
