@@ -1,9 +1,12 @@
-Aim:B-6 Beginning with an empty binary search tree, Construct binary search tree by inserting the values in order given. After constructing a binary tree-
+                         ASSIGNMENT NO 4 
+Aim:B-6 Beginning with an empty binary search tree, Construct binary search tree by inserting 
+the values in order given. After constructing a binary tree-
  A.insert new node 
-b.Find number of nodes in longest path from root
+ b.Find number of nodes in longest path from root
  c.Minimum data value found in the tree
  d. Change a tree so that the roles of left & right pointers are swapped at every node
  e. Search a value.
+
 Code :
 #include<bits/stdc++.h>
 using namespace std;
@@ -153,3 +156,33 @@ int main()
     
     return 0;
 }
+
+OUTPUT:
+Enter the number of nodes to be inserted in the BST-
+6
+Enter the data value to be inserted-
+12
+Enter the data value to be inserted-
+14
+Enter the data value to be inserted-
+26
+Enter the data value to be inserted-
+10
+Enter the data value to be inserted-
+45
+Enter the data value to be inserted-
+34
+Displaying the elements of the BST-
+12 10 14 26 45 34 
+Height of the tree is(Longest Path):  5
+Minimum value in the BST is:  10
+After mirroring, BST elements (Preorder Traversal):
+12 14 26 45 34 10 
+Enter the data value to be searched in the BST-
+12
+Key 12 is present in the BST!
+
+
+=== Code Execution Successful ===
+
+
